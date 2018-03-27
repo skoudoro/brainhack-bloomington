@@ -24,8 +24,8 @@
         </script>
     <![endif]-->
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="{% static 'vendors/scrolloverflow.js' %}"></script>
 
     <script type="text/javascript" src="{% static 'fullpage/js/jquery.fullpage.js' %}"></script>
@@ -175,7 +175,7 @@
                 </div>
                 <div class="col-md-5">
                     <img class="featurette-image img-fluid mx-auto"
-                         data-src="static/images/brainhack_global_iu_2017_2.jpg" style="width: 500px; height: 250px;">
+                         data-src="{% static 'images/brainhack_global_iu_2017_2.jpg' %}" style="width: 500px; height: 250px;">
                 </div>
             </div>
         </div>
@@ -184,7 +184,7 @@
         <div class="container with-padding-100">
             <div class="row">
                 <div class="col-lg-4">
-                    <img class="rounded-circle" src="static/images/kesshi-jordan.jpeg" alt="kesshi jordan" width="140"
+                    <img class="rounded-circle" src="{% static 'images/kesshi-jordan.jpeg' %}" alt="kesshi jordan" width="140"
                          height="140">
                     <h2>Kesshi Jordan</h2>
                     <p>PhD, University of California San Francisco
@@ -211,7 +211,7 @@
             <hr/>
             <div class="row">
                 <div class="col-lg-4">
-                    <img class="rounded-circle" src="static/images/kesshi-jordan.jpeg" alt="kesshi jordan" width="140"
+                    <img class="rounded-circle" src="{% static 'images/kesshi-jordan.jpeg' %}" alt="kesshi jordan" width="140"
                          height="140">
                     <h2>Kesshi Jordan</h2>
                     <p>PhD, University of California San Francisco
@@ -248,7 +248,7 @@
                 </div>
               </div>
                 <div class="card">
-                <img class="card-img" src="static/images/dipy-logo.png" alt="Card image">
+                <img class="card-img" src="{% static 'images/dipy-logo.png' %}" alt="Card image">
               </div>
               <div class="card">
                 <div class="card-body">
@@ -288,7 +288,7 @@ The workshop will not just teach you how to use the Python language and its lead
                 </div>
               </div>
                 <div class="card">
-                <img class="card-img" src="static/images/jet_odfs.png" alt="Card image">
+                <img class="card-img" src="{% static 'images/jet_odfs.png' %}" alt="Card image">
               </div>
               <div class="card">
                 <div class="card-body">
@@ -356,7 +356,7 @@ The workshop will not just teach you how to use the Python language and its lead
                 </div>
                 <div class="col-md-7">
                     <img class="featurette-image img-fluid mx-auto" alt="500x500" style="width: 530px; height: 300px;"
-                         src="static/images/luddy_hall.jpg">
+                         src="{% static 'images/luddy_hall.jpg' %}">
                 </div>
             </div>
             <br/>
