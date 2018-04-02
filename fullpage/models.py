@@ -138,9 +138,9 @@ class Profile(models.Model):
     need_parking = models.BooleanField(choices=BOOL_CHOICES, default=BOOL_CHOICES[1][0])
     area_of_interest = models.CharField(max_length=200, choices=INTEREST_CHOICES, blank=True, null=True)
     project_idea = models.TextField(null=True, blank=True)
-    code_level = models.CharField(max_length=200, choices=CODE_CHOICES, )
-    code_favorite = models.CharField(max_length=200, choices=CODE_FAVORITE_CHOICES, )
-    academic_level  = models.CharField(max_length=200, choices=ACADEMIC_CHOICES, )
+    code_level = models.CharField(max_length=200, choices=CODE_CHOICES, default=1)
+    code_favorite = models.CharField(max_length=200, choices=CODE_FAVORITE_CHOICES, default=1)
+    academic_level  = models.CharField(max_length=200, choices=ACADEMIC_CHOICES, default=1)
 
 
 @receiver(post_save, sender=User)
