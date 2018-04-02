@@ -1,0 +1,49 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- DJANGO META TEMPLATE TAGS START -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>BrainHack</title>
+    <meta name="author" content="Serge Koudoro" />
+    <meta name="description" content="BrainHack 2018 Bloomington" />
+    <meta name="keywords"  content="BrainHack, GRG, neuroimaging" />
+    <meta name="Resource-type" content="Document" />
+	<!-- DJANGO META TEMPLATE TAGS END -->
+
+	{% block extra_css %}{% endblock %}
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'fullpage/css/jquery.fullpage.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/brainhack.css' %}" />
+
+    <!-- Custom Fonts -->
+   <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+
+	<!-- Script -->
+	    <!--[if IE]>
+        <script type="text/javascript">
+             var console = { log: function() {} };
+        </script>
+    <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="{% static 'vendors/scrolloverflow.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'fullpage/js/jquery.fullpage.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/brainhack.js' %}"></script>
+
+	{% block extra_js_top %}{% endblock %}
+</head>
+
+
+<body>
+    {% block content_body %}{% endblock %}
+	<!-- Include Javascript -->
+	{% block extra_js_bottom %}{% endblock %}
+	{{ google_analytics|safe }}
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends 'fullpage/base.html' %}
+
+
+{% block content_body %}
+    <div class="container">
+        <h1 class="text-center mx-auto">Registration Form</h1>
+        <hr class="orange">
+        <div class="row">
+            <form method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="col-md-6 mb-3">
+                    <p>
+                        <strong>{{ field.label_tag }}</strong><br>
+                        {{ field }}
+                        {% if field.help_text %}
+                            <small style="color: grey">{{ field.help_text|safe}}</small>
+                        {% endif %}
+                        {% for error in field.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </p>
+                    </div>
+                {% endfor %}
+                <button type="submit">Sign up</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

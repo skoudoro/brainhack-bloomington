@@ -1,4 +1,6 @@
 
+import datetime
+
 from colorfield.fields import ColorField
 # from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
@@ -12,6 +14,23 @@ from django.utils import timezone
 import markdown
 import bleach
 
+
+# markdown allowed tags that are not filtered by bleach
+
+allowed_html_tags = bleach.ALLOWED_TAGS + ['p', 'pre', 'table', 'img',
+                                           'h1', 'h2', 'h3', 'h4', 'h5',
+                                           'h6', 'b', 'i', 'strong', 'em',
+                                           'tt', 'br', 'blockquote',
+                                           'code', 'ul', 'ol', 'li',
+                                           'dd', 'dt', 'a', 'tr', 'td',
+                                           'div', 'span', 'hr']
+
+allowed_attrs = ['href', 'class', 'rel', 'alt', 'class', 'src', 'id']
+
+TRUE_FALSE_CHOICES = (
+    (True, 'Yes'),
+    (False, 'No')
+)
 
 
 class ServiceBox(models.Model):
@@ -52,8 +71,6 @@ class Workshop(models.Model):
 
     def save(self, *args, **kwargs):
         html_content = markdown.markdown(self.body_markdown, extensions=['codehilite'])
-        date = datetime.date.today()
-        self.slug = '%i/%i/%i/%s' % (date.year, date.month, date.day, slugify(self.title))
 
         # bleach is used to filter html tags like <script> for security
         self.body_html = bleach.clean(html_content, allowed_html_tags,
@@ -69,6 +86,7 @@ class Workshop(models.Model):
     def __str__(self):
         return self.title
 
+
 class Conference(models.Model):
     title = models.CharField('title', max_length=100)
     background_image = models.ImageField('background image', upload_to='images/', default='', blank=True)
@@ -76,7 +94,7 @@ class Conference(models.Model):
     end_date = models.DateTimeField(default=timezone.now()+timezone.timedelta(hours=1))
     registration_deadline = models.DateTimeField(default=timezone.now)
     city = models.CharField('City', max_length=100, default="Bloomington")
-    states = models.CharField('State', max_length=100,default="IN")
+    states = models.CharField('State', max_length=100, default="IN")
     country = models.CharField('country', max_length=100, default="USA")
     standard_price = models.IntegerField(blank=True, default=100)
     student_price = models.IntegerField(blank=True, default=60)
@@ -90,7 +108,6 @@ class Conference(models.Model):
 
     def save(self, *args, **kwargs):
         html_content = markdown.markdown(self.what_is_description, extensions=['codehilite'])
-        date = datetime.date.today()
 
         # bleach is used to filter html tags like <script> for security
         self.what_is_html = bleach.clean(html_content, allowed_html_tags,
@@ -108,13 +125,30 @@ class Conference(models.Model):
 
 
 class Profile(models.Model):
+    BOOL_CHOICES = ((True, 'Yes'), (False, 'No'))
+    INTEREST_CHOICES = ((1, 'Brain Computer Interfaces'), (2,'MRI'), (3,'EEG & MEG'), (4,'PET'), (5, 'Network Science'),
+                        (6, 'Machine Learning'), (7, 'Statistical Analysis'), (8, 'Other'))
+    ACADEMIC_CHOICES = ((1, 'Professor'), (2, 'Postdoc'), (1, 'PhD student'), (2, 'Master student'),
+                        (1, 'BSc Student'), (2, 'Other'))
+    CODE_CHOICES = ((1, 'Novice'), (2, 'Intermediate'), (3, 'Advanced'))
+    CODE_FAVORITE_CHOICES = ((1, 'C / C++'), (2, 'Python'), (3, 'Matlab'), (4, 'Javascript'), (5, 'Other'))
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    affiliation = models.CharField('Affiliation', max_length=100, default="Indiana University")
+    need_parking = models.BooleanField(choices=BOOL_CHOICES, default=BOOL_CHOICES[1][0])
+    area_of_interest = models.CharField(max_length=200, choices=INTEREST_CHOICES, blank=True, null=True)
+    project_idea = models.TextField(null=True, blank=True)
+    code_level = models.CharField(max_length=200, choices=CODE_CHOICES, )
+    code_favorite = models.CharField(max_length=200, choices=CODE_FAVORITE_CHOICES, )
+    academic_level  = models.CharField(max_length=200, choices=ACADEMIC_CHOICES, )
+
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance,
-                               profile_page_markdown="")
+                               )
+    instance.profile.save()
 
 
 class Speaker(models.Model):
@@ -128,11 +162,10 @@ class Speaker(models.Model):
 
     def save(self, *args, **kwargs):
         html_content = markdown.markdown(self.abstract_markdown, extensions=['codehilite'])
-        date = datetime.date.today()
 
         # bleach is used to filter html tags like <script> for security
         self.abstract_html = bleach.clean(html_content, allowed_html_tags,
-                                         allowed_attrs)
+                                          allowed_attrs)
         self.modified = datetime.datetime.now()
 
         # clear the cache

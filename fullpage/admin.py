@@ -1,4 +1,6 @@
 from django.contrib import admin
+from fullpage.models import ServiceBox, Workshop,\
+    Conference, Profile, Speaker
 """from fullpage.models import FullPage, Section, slides
 
 class FullpageInline(admin.StackedInline):
