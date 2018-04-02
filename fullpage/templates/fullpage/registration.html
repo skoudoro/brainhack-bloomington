@@ -6,24 +6,175 @@
         <h1 class="text-center mx-auto">Registration Form</h1>
         <hr class="orange">
         <div class="row">
-            <form method="post">
-                {% csrf_token %}
-                {% for field in form %}
-                    <div class="col-md-6 mb-3">
-                    <p>
-                        <strong>{{ field.label_tag }}</strong><br>
-                        {{ field }}
-                        {% if field.help_text %}
-                            <small style="color: grey">{{ field.help_text|safe}}</small>
-                        {% endif %}
-                        {% for error in field.errors %}
-                            <p style="color: red">{{ error }}</p>
-                        {% endfor %}
-                    </p>
-                    </div>
-                {% endfor %}
-                <button type="submit">Sign up</button>
-            </form>
+            <div class="col-md-8 order-md-1">
+                <form method="post">
+                    {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <p>
+                                    <strong>{{ form.first_name.label_tag }}</strong><br>
+                                    {{ form.first_name }}
+                                    {% if form.first_name.help_text %}
+                                        <small style="color: grey">{{ form.first_name.help_text|safe}}</small>
+                                    {% endif %}
+                                    {% for error in form.first_name.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <p>
+                                    <strong>{{ form.last_name.label_tag }}</strong><br>
+                                    {{ form.last_name }}
+                                    {% if form.last_name.help_text %}
+                                        <small style="color: grey">{{ form.last_name.help_text|safe}}</small>
+                                    {% endif %}
+                                    {% for error in form.last_name.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <p>
+                                    <strong>{{ form.affiliation.label_tag }}</strong><br>
+                                    {{ form.affiliation }}
+                                    {% if form.affiliation.help_text %}
+                                        <small style="color: grey">{{ form.affiliation.help_text|safe}}</small>
+                                    {% endif %}
+                                    {% for error in form.affiliation.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <p>
+                                    <strong>{{ form.email.label_tag }}</strong><br>
+                                    {{ form.email }}
+                                    {% if form.email.help_text %}
+                                        <small style="color: grey">{{ form.email.help_text|safe}}</small>
+                                    {% endif %}
+                                    {% for error in form.email.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <p>
+                                    <strong>{{ form.academic_level.label_tag }}</strong><br>
+                                    {{ form.academic_level }}
+                                    {% if form.academic_level.help_text %}
+                                        <small style="color: grey">{{ form.academic_level.help_text|safe}}</small>
+                                    {% endif %}
+                                    {% for error in form.academic_level.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <p>
+                                    <strong>{{ form.area_of_interest.label_tag }}</strong><br>
+                                    {{ form.area_of_interest }}
+                                    {% if form.area_of_interest.help_text %}
+                                        <small style="color: grey">{{ form.area_of_interest.help_text|safe}}</small>
+                                    {% endif %}
+                                    {% for error in form.area_of_interest.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <p>
+                                    <strong>{{ form.code_level.label_tag }}</strong><br>
+                                    {{ form.code_level }}
+                                    {% if form.code_level.help_text %}
+                                        <small style="color: grey">{{ form.code_level.help_text|safe}}</small>
+                                    {% endif %}
+                                    {% for error in form.code_level.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <p>
+                                    <strong>{{ form.code_favorite.label_tag }}</strong><br>
+                                    {{ form.code_favorite }}
+                                    {% if form.code_favorite.help_text %}
+                                        <small style="color: grey">{{ form.code_favorite.help_text|safe}}</small>
+                                    {% endif %}
+                                    {% for error in form.code_favorite.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <p>
+                                    <strong>{{ form.need_parking.label_tag }}</strong><br>
+                                    {{ form.need_parking }}
+                                    {% if form.need_parking.help_text %}
+                                        <small style="color: grey">{{ form.need_parking.help_text|safe}}</small>
+                                    {% endif %}
+                                    {% for error in form.need_parking.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <p>
+                                    <strong>{{ form.project_idea.label_tag }}</strong><br>
+                                    {{ form.project_idea }}
+                                    {% if form.project_idea.help_text %}
+                                        <small style="color: grey">{{ form.project_idea.help_text|safe}}</small>
+                                    {% endif %}
+                                    {% for error in form.project_idea.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </p>
+                            </div>
+                        </div>
+                    <hr class="orange"/>
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">Register</button>
+                </form>
+            </div>
+            <div class="col-md-4 order-md-2 mb-4">
+          <ul class="list-group mb-3">
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0">WorkShop - Standard</h6>
+                <small class="text-muted">Brainhack</small>
+              </div>
+              <span class="text-muted">$90</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between bg-light">
+              <div class="text-success">
+                <h6 class="my-0">Promo code</h6>
+                <small>BH18-BL</small>
+              </div>
+              <span class="text-success">-$5</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Total (USD)</span>
+              <strong>$90</strong>
+            </li>
+          </ul>
+
+          <form class="card p-2">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Promo code">
+              <div class="input-group-append">
+                <button type="submit" class="btn btn-secondary">Redeem</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        </div>
         </div>
     </div>
 {% endblock %}
