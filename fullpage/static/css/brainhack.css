@@ -283,6 +283,13 @@ div.apply-section * {
 }
 /* Color
 ------------------------- */
+.left-separator {
+  padding-left: 5px;
+  padding-right: 5px;
+  border-left: medium solid #fc7f0c;
+	color:#888888;
+}
+
 .yellow {
 	background-color: #ffc000;
 }
