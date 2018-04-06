@@ -301,6 +301,7 @@ The workshop will not just teach you how to use the Python language and its lead
                 <iframe style="width: 54vw;height: 75vh;position: relative;" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS3tjjg7QC1yev-kYdWtuFAgR_mhrys0_vDdax_IuyunFs3uERyO9T_qr-Eye7slttDG8_AUH3QMe2e/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
             </div>
         </div>
+
     </div>
     <div class="section" id="section_6">
         <div class="apply-section">
@@ -334,78 +335,57 @@ The workshop will not just teach you how to use the Python language and its lead
         </div>
     </div>
     <div class="section venue" id="section_7">
-        <div class="container with-padding-150">
-            <div class="row featurette">
-                <div class="col-md-5" style="padding: 5%;">
-                    <h2 class="featurette-heading"><b>Address</b></h2>
-                    <p class="lead">Luddy Hall</p>
-                    <p class="lead">700 N Woodlawn Ave</p>
-                    <p class="lead">Bloomington, IN 47408</p>
-                </div>
-                <div class="col-md-7">
-                    <img class="featurette-image img-fluid mx-auto" alt="500x500" style="width: 530px; height: 300px;"
-                         src="{% static 'images/luddy_hall.jpg' %}">
-                </div>
-            </div>
-            <br/>
+        <div class="container-fluid" id="map_wrapper">
+            <div id="map_canvas" class="mapping"></div>
         </div>
-        <div class="row">
-            <div class="col">
-                <h2 class="">Lodging</h2><br/>
-                <div class=""></div>
+        <div class="container" id="map_info">
+            <div class="col-md-5 col-sm-7 " id="tab_container">
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active text-center" data-toggle="tab" href="#location" role="tab" aria-controls="location">
+        <h4 class="fa fa-compass"></h4><br/>Location</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#hotel" role="tab" aria-controls="hotel">
+        <h4 class="fa fa-home"></h4><br/>Hotel</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#flight" role="tab" aria-controls="flight">
+        <h4 class="fa fa-plane"></h4><br/>Flight</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#road" role="tab" aria-controls="road">
+        <h4 class="fa fa-road"></h4><br/>Road</a>
+  </li>
+</ul>
 
+<div class="tab-content">
+  <div class="tab-pane active" id="location" role="tabpanel">
+      <div class="col-9 offset-3">
+          <br/>
+          <div>
+              <img class="col" alt="500x500" style="width: 300px; height: 150px;"
+                         src="{% static 'images/luddy_hall.jpg' %}">
+          </div>
+          <div class="col" style="padding: 2%;font-size: 0.8em;">
+              <br/>
+              <h3>Luddy Hall <br/>700 N Woodlawn Ave<br/>Bloomington, IN 47408</h3>
+          </div>
+      </div>
+  </div>
+  <div class="tab-pane" id="hotel" role="tabpanel">
+      <div class="col-9 offset-3">
+          <br/>
                 <h3>
-                    <b>On Campus Hotel Accommodations</b>
-
+                    <b>On Campus Hotel: Indiana Memorial Union (IMU)</b>
                 </h3>
-                <br/>
-                <h5>
-                    <b>Host Hotel: Indiana Memorial Union (IMU)</b>
-                </h5>
                 <p>
                     The Indiana Memorial Union (IMU) is located in the center of campus and is in easy walking
-                    distance to many of Bloomington’s downtown shops, cafes and restaurants.
+                    distance to many of Bloomington’s downtown shops, cafes and restaurants.<br/>
+                    <a target="_blank" rel="noopener noreferrer"
+                       href="http://www.imu.indiana.edu/hotel/index.shtml">more informations...</a>
                 </p>
                 <br/>
-                <table class="table">
-                    <tbody>
-                    <tr>
-                        <td>Address:</td>
-                        <td>
-                            900 East 7th Street
-                            <br>Bloomington, IN USA 47405
-                            <br>812.856. 6381
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>On-line reservation:</td>
-                        <td><a target="_blank" rel="noopener noreferrer"
-                               href="http://www.imu.indiana.edu/hotel/index.shtml">http://www.imu.indiana.edu/hotel/index.shtml</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Phone reservations:</td>
-                        <td>(812) 856-6381</td>
-                    </tr>
-                    <tr>
-                        <td>Room rates:</td>
-                        <td>
-                            Rates currently range from $139/night to $189/night depending on the type of
-                            room you reserve.<br>
-                            All rooms are currently subject to a 12% tax.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Parking:</td>
-                        <td>free to hotel guests</td>
-                    </tr>
-                    <tr>
-                        <td>Wireless Internet:</td>
-                        <td>free</td>
-                    </tr>
-                    </tbody>
-                </table>
-
                 <h3><b>Off Campus Accommodations</b>
                 </h3>
                 <br/>
@@ -417,14 +397,38 @@ The workshop will not just teach you how to use the Python language and its lead
                                                                               href="http://www.visitbloomington.com/visitors/hotels">http://www.visitbloomington.com/visitors/hotels</a>).
                 </p>
             </div>
-            <div class="col">
-                <h2 class="">Travel</h2>
-                <br/>
-                <div class=""></div> <!-- light-text / colored-line-left-->
+    </div>
+  <div class="tab-pane" id="flight" role="tabpanel">
+      <div class="col-9 offset-3">
+          <br/>
                 <h3>
-                    Driving to IU Bloomington
+                    <b>Air Travel to IU Bloomington</b>
                 </h3>
+                <p>Airport Symbol: <strong>IND</strong><br/>
+                    Location: 50 miles north of Bloomington, IN
+                </p>
+                <h3>
+                    <b>Airport to Campus</b>
+                </h3>
+                <p> <a target="_blank" rel="noopener noreferrer"
+                       href="http://www.soashuttle.com/locations/bloomington-to-indianapolis">Star of America - Shuttle Service</a>
+                    <br/>
+                    <a target="_blank" rel="noopener noreferrer"
+                       href="http://www.goexpresstravel.com/airport_shuttle_schedule">Go Express Travel - Shuttle Service</a>
+                    <br/>
+                    <a target="_blank" rel="noopener noreferrer"
+                       href="http://classictouchlimo.com">Limousine Service - Classic Touch Limousine</a>
+                    <br/>
+                </p>
                 <br/>
+    </div>
+  </div>
+  <div class="tab-pane" id="road" role="tabpanel">
+      <div class="col-9 offset-3">
+          <br/>
+                <h3>
+                    <b>Driving to IU Bloomington</b>
+                </h3>
                 <p>
                     We suggest that you consult Mapquest or Google maps for the best directions to Bloomington
                     and return or use GPS to guide you. Driving to and from the airport to campus
@@ -432,151 +436,8 @@ The workshop will not just teach you how to use the Python language and its lead
                     50 minutes.
                 </p>
                 <br/>
-                <h3>
-                    Air Travel to IU Bloomington
+                <h3><b>Car Rental - Bus, Taxis</b>
                 </h3>
-                <br/>
-                <p>
-                    Most attendees who elect to fly to the workshop will fly to the Indianapolis International
-                    Airport.
-                </p>
-                <br/>
-                <table class="table">
-                    <tbody>
-                    <tr>
-                        <td>Airport Symbol:</td>
-                        <td>IND</td>
-                    </tr>
-                    <tr>
-                        <td>Location:</td>
-                        <td>50 miles north of Bloomington, IN</td>
-                    </tr>
-                    </tbody>
-                </table>
-                <br/>
-                <h3>
-                    Airport to Campus
-                </h3>
-                <br/>
-                <h5>
-                    Go Express Travel - Shuttle Service
-                </h5>
-                <br/>
-                <table class="table">
-                    <tbody>
-                    <tr>
-                        <td>Service:</td>
-                        <td>9 times daily between the airport
-                            and Bloomington campus
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Advance reservations:</td>
-                        <td>Recommended</td>
-                    </tr>
-                    <tr>
-                        <td>Reservations on-line:</td>
-                        <td><a href="http://www.goexpresstravel.com/airport_shuttle_schedule"
-                               target="_blank" rel="noopener noreferrer">http://www.goexpresstravel.com/airport_shuttle_schedule</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Phone:</td>
-                        <td>1.800.589.6004 or 812.332.6004</td>
-                    </tr>
-                    <tr>
-                        <td>Rate:</td>
-                        <td>Currently $18.00 one way</td>
-                    </tr>
-                    <tr>
-                        <td>Airport pick-up location:</td>
-                        <td>Ground Transportation Center. Lower level, outside of airport
-                            Baggage Claim
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                <br/>
-                <h5>
-                    Star of America - Shuttle Service
-                </h5>
-                <br/>
-                <table class="table">
-                    <tbody>
-                    <tr>
-                        <td>Service:</td>
-                        <td>9 times daily between the airport and Bloomington campus</td>
-                    </tr>
-                    <tr>
-                        <td>Advance reservations:</td>
-                        <td>Recommended</td>
-                    </tr>
-                    <tr>
-                        <td>Reservations on-line:</td>
-                        <td><a
-                                href="http://www.soashuttle.com/locations/bloomington-to-indianapolis" target="_blank"
-                                rel="noopener noreferrer">http://www.soashuttle.com/locations/bloomington-to-indianapolis</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Phone:</td>
-                        <td>1.800.933.0097</td>
-                    </tr>
-                    <tr>
-                        <td>Rate:</td>
-                        <td>Currently $18.00 one way</td>
-                    </tr>
-                    <tr>
-                        <td>Airport pick-up location:</td>
-                        <td>Ground Transportation Center. Lower level, outside of airport
-                            Baggage Claim
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                <br/>
-                <h5>
-                    Limousine Service - Classic Touch Limousine
-                </h5>
-                <br/>
-                <table class="table">
-                    <tbody>
-                    <tr>
-                        <td>Service:</td>
-                        <td>Door to door service from airport to any location in Bloomington</td>
-                    </tr>
-                    <tr>
-                        <td>Advance reservations:</td>
-                        <td>Required</td>
-                    </tr>
-                    <tr>
-                        <td>Rates:</td>
-                        <td>Currently $122 roundtrip per person.
-                            Rate is for shared ride service; private car rate is not guaranteed
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Reservations:</td>
-                        <td><a href="http://classictouchlimo.com" target="_blank"
-                               rel="noopener noreferrer">classictouchlimo.com</a></td>
-                    </tr>
-                    <tr>
-                        <td>Phone:</td>
-                        <td>1.800.319.0082 or 812.339.7269</td>
-                    </tr>
-                    <tr>
-                        <td>IMPORTANT:</td>
-                        <td>The limousine driver will not meet you inside of the terminal nor will
-                            he/she have a sign identifying you by name. It is your responsibility to
-                            approach a Classic Touch limousine and provide them with your name.
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                <br/>
-                <h4>
-                    Car Rental - Bus, Taxis
-                </h4>
                 <br/>
                 <p>
                     Most major car rental companies provide service at the airport. Car Rental companies
@@ -589,9 +450,13 @@ The workshop will not just teach you how to use the Python language and its lead
                 <p>
                     Taxis service is available, but is very expensive and not recommended.
                 </p>
-                <br/>
+            </div>
+    </div>
+  </div>
+</div>
             </div>
         </div>
+    </div>
     </div>
     <div class="section" id="section_8">
         <div class="container with-padding-100">
@@ -642,5 +507,83 @@ The workshop will not just teach you how to use the Python language and its lead
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block extra_js_bottom %}
+    <script>
+jQuery(function($) {
+    // Asynchronously Load the map API
+    var script = document.createElement('script');
+    script.src = "//maps.googleapis.com/maps/api/js?sensor=false&callback=initialize";
+    document.body.appendChild(script);
+});
+
+function initialize() {
+    var map;
+    var bounds = new google.maps.LatLngBounds();
+    var mapOptions = {
+        mapTypeId: 'roadmap'
+    };
+
+    // Display a map on the page
+    map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+    map.setTilt(45);
+
+    // Multiple Markers
+    var markers = [
+        ['Luddy Hall', 39.1727925, -86.523865],
+        ['Indiana Memorial Union', 39.1674667, -86.5257688]
+    ];
+
+    // Info Window Content
+    var infoWindowContent = [
+        ['<div class="info_content">' +
+        '<h3>Luddy Hall</h3></div>'],
+        ['<div class="info_content">' +
+        '<h3>Indiana Memorial Union (IMU)</h3></div>']
+    ];
+
+    // Display multiple markers on a map
+    var infoWindow = new google.maps.InfoWindow(), marker, i;
+
+
+    // Loop through our array of markers & place each one on the map
+    for( i = 0; i < markers.length; i++ ) {
+        var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+        bounds.extend(position);
+        marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            title: markers[i][0]
+        });
+        // Allow each marker to have an info window
+        //google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        //    return function() {
+        //        infoWindow.setContent(infoWindowContent[i][0]);
+        //        infoWindow.open(map, marker);
+        //    }
+        //})(marker, i));
+
+        // Automatically center the map fitting all markers on the screen
+        map.fitBounds(bounds);
+    }
+    var position = new google.maps.LatLng(markers[0][1], markers[0][2]);
+        bounds.extend(position);
+        marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            title: markers[0][0]
+        });
+    infoWindow.setContent(infoWindowContent[0][0]);
+    infoWindow.open(map, marker);
+
+    // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
+    var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+        this.setZoom(14);
+        google.maps.event.removeListener(boundsListener);
+    });
+
+}
+</script>
 {% endblock %}
 
