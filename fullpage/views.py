@@ -1,21 +1,28 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
-from fullpage.forms import RegistrationForm
+from fullpage.forms import RegistrationForm, ProspectForm
+from django.contrib import messages
 
-#from fullpage.models import Section, FullPage, slides as Slides
 
 # Create your views here.
 def index(request):
-    # fullpage = FullPage.objects.all()[0]
-    # sections = Section.objects.all()
-    # slides = Slides.objects.all()
-    return render(request, 'fullpage/index.html',
-            # {
-            #     'fullpage' : fullpage,
-            #     'sections' : sections,
-            #     'slides' : slides,
-            # }
-        )
+    context = {}
+    if request.method == 'POST':
+        submitted_form = ProspectForm(request.POST)
+        if submitted_form.is_valid():
+            submitted_form.save()
+            return redirect('index')
+        else:
+            messages.error(request, submitted_form.errors)
+            context['form'] = submitted_form
+            return render(request, 'fullpage/index.html', context)
+
+    else:
+        form = ProspectForm()
+
+    form = ProspectForm()
+    context['form'] = form
+    return render(request, 'fullpage/index.html', context)
 
 
 def registration(request):

@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from fullpage.models import Profile
+from fullpage.models import Profile, Prospect
 
 
 class RegistrationForm(UserCreationForm):
@@ -37,3 +37,15 @@ class RegistrationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'affiliation', 'email', 'password1', 'password2', )
+
+
+class ProspectForm(forms.ModelForm):
+    class Meta:
+        model = Prospect
+        fields = ('mail',)
+
+    def __init__(self, *args, **kwargs):
+        super(ProspectForm, self).__init__(*args, **kwargs)
+        self.fields['mail'].widget.attrs.update({
+            'class': 'expand'
+        })

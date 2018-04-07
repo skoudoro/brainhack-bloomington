@@ -142,6 +142,9 @@ class Profile(models.Model):
     code_favorite = models.CharField(max_length=200, choices=CODE_FAVORITE_CHOICES, default=1)
     academic_level  = models.CharField(max_length=200, choices=ACADEMIC_CHOICES, default=1)
 
+    def __str__(self):
+        return self.user.username
+
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
@@ -176,3 +179,10 @@ class Speaker(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Prospect(models.Model):
+    mail = models.EmailField(null=True, blank=True, default=" Enter you email to stay tuned")
+
+    def __str__(self):
+        return self.mail
