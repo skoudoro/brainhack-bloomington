@@ -369,6 +369,10 @@ div.card-deck * {
 	color: black;
 }
 
+p.card-text * {
+	font-size: xx-small;
+}
+
 /* Featurettes
 ------------------------- */
 

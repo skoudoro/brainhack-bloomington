@@ -361,10 +361,16 @@
     <div class="section" id="section_4">
         <div class="container with-padding-100">
             <div class="card-columns">
+                <!--<div class="card">
+                    <img class="card-img" src="{ static 'images/dipy-logo.png' %}" alt="Card image">
+                </div>-->
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Introduction to Tortoise</h5>
                         <hr class="yellow"/>
+                        <p class="card-text">
+                            <small class="text-muted">By Okan Irfanoglu</small>
+                        </p>
                         <p class="card-text">
                         <ul>
                             <li>Installation</li>
@@ -376,7 +382,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img" src="{% static 'images/dipy-logo.png' %}" alt="Card image">
+                    <img class="card-img" src="{% static 'images/jet_odfs.png' %}" alt="Card image">
                 </div>
                 <div class="card">
                     <div class="card-body">
@@ -438,8 +444,11 @@
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img" src="{% static 'images/jet_odfs.png' %}" alt="Card image">
+                    <img class="card-img" src="{% static 'images/odf-detailed.png' %}" alt="Card image">
                 </div>
+                <!--<div class="card">
+                    <img class="card-img" src="{ static 'images/TORTOISE_LOGO.png' %}" alt="Card image" height="250px">
+                </div>-->
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Brain-Life</h5>
@@ -482,7 +491,7 @@
     <div class="section" id="section_5">
         <div class="row with-padding-100">
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <iframe style="width: 54vw;height: 75vh;position: relative;" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS3tjjg7QC1yev-kYdWtuFAgR_mhrys0_vDdax_IuyunFs3uERyO9T_qr-Eye7slttDG8_AUH3QMe2e/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+                <iframe style="width: 770px;height: 75vh;position: relative;" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS3tjjg7QC1yev-kYdWtuFAgR_mhrys0_vDdax_IuyunFs3uERyO9T_qr-Eye7slttDG8_AUH3QMe2e/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
             </div>
         </div>
 
@@ -491,7 +500,7 @@
         <div class="apply-section">
             <div class="container">
                 <div class=".col-8 .col-md-6 .col-sm-6">
-                    <h1 class="intro">Registration is coming soon!</h1>
+                    <h1 class="intro">Registration is opening in ...</h1>
                 </div>
                 <div class=".col-8 .col-md-6 .col-sm-6 with-padding-60">
                     <div id="clockdiv">
@@ -777,7 +786,7 @@ function initializeClock(id, endtime) {
   var timeinterval = setInterval(updateClock, 1000);
 }
 
-var deadline = new Date(Date.parse(new Date()) + 4 * 24 * 60 * 60 * 1000);
+var deadline = new Date(Date.parse(new Date()) + 3 * 24 * 60 * 60 * 1000);
 initializeClock('clockdiv', deadline);
 
 
