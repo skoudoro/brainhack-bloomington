@@ -62,22 +62,29 @@
 
 
 {% block content_body %}
-<ul id="menu">
-    <li data-menuanchor="Contact"><a href="#Contact">Contact</a></li>
-    <li data-menuanchor="Venue"><a href="#Venue">Venue</a></li>
-    <li data-menuanchor="Register"><a href="#Register">Register</a></li>
-    <li data-menuanchor="Schedule"><a href="#Schedule">Schedule</a></li>
-    <li data-menuanchor="Workshops"><a href="#Workshops">Workshops</a></li>
-    <li data-menuanchor="Speakers"><a href="#Speakers">Speakers</a></li>
-    <li data-menuanchor="About"><a href="#About">About</a></li>
-    <li data-menuanchor="Home"><a href="#Home">Home</a></li>
-</ul>
+    <div id="menu">
+        <div class="row">
+            <ul class="col-8">
+                <li data-menuanchor="Home"><a href="#Home">Home</a></li>
+                <li data-menuanchor="About"><a href="#About">About</a></li>
+                <li data-menuanchor="Speakers"><a href="#Speakers">Speakers</a></li>
+                <li data-menuanchor="Workshops"><a href="#Workshops">Workshops</a></li>
+                <li data-menuanchor="Schedule"><a href="#Schedule">Schedule</a></li>
+                <li data-menuanchor="Register"><a href="#Register">Register</a></li>
+                <li data-menuanchor="Venue"><a href="#Venue">Venue</a></li>
+                <li data-menuanchor="Contact"><a href="#Contact">Contact</a></li>
+            </ul>
+            <div class="col-4"><img class="" src="{% static 'images/iu-logo.png' %}"
+                                    style="height: 20px; float: right;margin: 5%; margin-right: 20%"></div>
+        </div>
+    </div>
 
 <div id="fullpage">
     <div class="section" id="section_1">
         <h1>BrainHack Global</h1>
         <h3>May 2-4, 2018</h3>
-        <h2>Bloomington, IN, USA</h2>
+        <h2>Indiana University</h2>
+        <h3>Bloomington, IN, USA</h3>
     </div>
     <div class="section" id="section_2">
         <div class="container with-padding-100">
@@ -92,7 +99,7 @@
                         </div>
                         <div class="service-content">
                             <h3>Share ideas</h3>
-                            <p>those who do not know how to pursue pleasure</p>
+                            <p>Those who do not know how to pursue pleasure</p>
                         </div>
                     </div>
                 </div>
@@ -120,7 +127,7 @@
                         </div>
                         <div class="service-content">
                             <h3>Learn Tools</h3>
-                            <p>Bring your expertize, datas, project ideas</p>
+                            <p>Discover or improve your skill on neuroscience software like DIPY, brain-life or Tortoise</p>
                         </div>
                     </div>
                 </div>
@@ -134,7 +141,7 @@
                         </div>
                         <div class="service-content">
                             <h3>Meet the community</h3>
-                            <p>Bring your expertize, datas, project ideas</p>
+                            <p>Share your experience with researchers from various disciplines around the world</p>
                         </div>
                     </div>
                 </div>
@@ -142,8 +149,9 @@
             <div class="row featurette with-padding-60">
                 <div class="col-md-7">
                     <h2 class="featurette-heading"><b>What</b> is BrainHack ?</h2><br/>
-                    <p >Brainhack is a unique conference that convenes researchers from across the globe and a myriad of disciplines to work together on innovative projects related to neuroscience. Year after year, global Brainhack events have brought together researchers to participate in open collaboration, and regional Brainhack events keep the momentum going throughout the year. Brainhack Global 2018 will unite several regional Brainhack events throughout the world..</p>
-                    <p>Whatever your background, skill‑set, or level of expertise, you are encouraged to join us and participate: propose and discuss ideas, provide tutorials, or contribute to activities initiated by others. If you're motivated, even just by curiosity, we want what you have to share</p>
+                    <p>Brainhack is a unique conference that convenes researchers from across the globe and a myriad of disciplines to work together on innovative projects related to neuroscience. Year after year, global Brainhack events have brought together researchers to participate in open collaboration, and regional Brainhack events keep the momentum going throughout the year. Brainhack Global 2018 will unite several regional Brainhack events throughout the world.</p>
+                    <p>Whatever your background, or level of expertise, you are encouraged to join us and participate: propose and discuss ideas, showcase demos, or contribute to activities initiated by others.</p>
+                    <p>This year in the Brainhack at Indiana University, Bloomington, apart from the standard coding and building projects and the excellent keynote speakers we bring to you also a series of unique workshop/tutorial sections.</p>
                 </div>
                 <div class="col-md-5">
                     <img class="featurette-image img-fluid mx-auto"
