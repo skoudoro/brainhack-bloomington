@@ -197,7 +197,7 @@
                          width="140" height="140">
                     <h3>Yaroslav Halchenko</h3>
                     <p>Psychological and Brain Sciences</p>
-                    <p>Dartmouth university</p>
+                    <p>Dartmouth College</p>
                     <div class="code">
                         <a href="#" class="shared-show-hide left-separator"><span>Abstract</span></a>
                         <div class="shared-block" style="display: none;">
@@ -365,7 +365,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <img class="rounded-circle" src="https://science.nichd.nih.gov/confluence/download/attachments/17203566/Carlo_Pierpaoli.jpg?version=2&modificationDate=1208463957000&api=v2"
+                    <img class="rounded-circle" src="{% static 'images/Carlo_Pierpaoli.jpg' %}"
                          alt="schilling" width="140" height="140">
                     <h3>Carlo Pierpaoli</h3>
                     <p>Quantitative Medical Imaging</p>
@@ -537,7 +537,7 @@
     <div class="section" id="section_6">
         <div class="apply-section">
             <div class="container">
-                <div class=".col-8 .col-md-6 .col-sm-6">
+                <!--<div class=".col-8 .col-md-6 .col-sm-6">
                     <h1 class="intro">Registration is opening in ...</h1>
                 </div>
                 <div class=".col-8 .col-md-6 .col-sm-6 with-padding-60">
@@ -562,16 +562,16 @@
                 </div>
                 <div class=".col-8 .col-md-6 .col-sm-6 with-padding-60">
                     <form method="post">
-                        {% csrf_token %}
+                        { csrf_token %}
                         <div class="row">
                             <div class="col-md-8 mb-3" style="padding:  0;">
-                                    {{ form.mail }}
-                                    {% if form.mail.help_text %}
-                                        <small style="color: grey">{{ form.mail.help_text|safe}}</small>
-                                    {% endif %}
-                                    {% for error in form.mail.errors %}
-                                        <p style="color: red">{{ error }}</p>
-                                    {% endfor %}
+                                    {#  #}{ form.mail }}
+                                    { if form.mail.help_text %}
+                                        <small style="color: grey">{#  #}{ form.mail.help_text|safe}}</small>
+                                    {#  #} endif %}
+                                    {#  #} for error in form.mail.errors %}
+                                        <p style="color: red">{#  #}{ error }}</p>
+                                    {#  #} endfor %}
                             </div>
                             <div class="col-md-4 mb-3" style="padding:  0;">
                                 <button class="btn btn-secondary btn-lg btn-block" type="submit" style="float:left;">
@@ -579,8 +579,8 @@
                             </div>
                         </div>
                     </form>
-                </div>
-                <!-- <div class=".col-8 .col-md-6 .col-sm-6">
+                </div>-->
+                <div class=".col-8 .col-md-6 .col-sm-6">
                     <h2 class="intro">Applications for 2018 are now open!</h2>
                     <h2>
                     </h2><h4>Application deadline: April 30th, 2018</h4>
@@ -603,8 +603,8 @@
                         </div>
                     </div>
                 </div>
-                <a href="{# url 'registration' #}" role="button" class="btn btn-lg btn-block btn-outline-secondary">Apply
-                </a>-->
+                <a href="https://indianauniv.ungerboeck.com/prod/emc00/register.aspx?OrgCode=10&EvtID=8596&AppCode=REG&CC=118041203651" role="button" class="btn btn-lg btn-block btn-outline-secondary">Apply
+                </a>
             </div>
         </div>
     </div>
