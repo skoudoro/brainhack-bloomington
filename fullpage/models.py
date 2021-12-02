@@ -140,7 +140,7 @@ class Profile(models.Model):
     project_idea = models.TextField(null=True, blank=True)
     code_level = models.CharField(max_length=200, choices=CODE_CHOICES, default=1)
     code_favorite = models.CharField(max_length=200, choices=CODE_FAVORITE_CHOICES, default=1)
-    academic_level  = models.CharField(max_length=200, choices=ACADEMIC_CHOICES, default=1)
+    academic_level = models.CharField(max_length=200, choices=ACADEMIC_CHOICES, default=1)
 
     def __str__(self):
         return self.user.username
@@ -155,7 +155,7 @@ def create_user_profile(sender, instance, created, **kwargs):
 
 
 class Speaker(models.Model):
-    profile = models.ForeignKey(Profile, verbose_name='profile')
+    profile = models.ForeignKey(Profile, verbose_name='profile', on_delete=models.DO_NOTHING)
     title = models.CharField('title', max_length=100)
     abstract_markdown = models.TextField(null=True, blank=True)
     abstract_html = models.TextField(editable=False)

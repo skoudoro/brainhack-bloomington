@@ -1,7 +1,7 @@
 
-Django==2.2.24
-django-colorfield==0.1.10
-django-ckeditor==5.0.3
-pillow
-Markdown==2.6.7
+Django==3.1.6
+django-colorfield==0.4.5
+django-ckeditor==6.2.0
+pillow==8.1.0
+Markdown==3.3.3
 bleach==3.3.0

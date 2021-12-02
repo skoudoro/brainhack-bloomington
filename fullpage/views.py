@@ -15,14 +15,54 @@ def index(request):
         else:
             messages.error(request, submitted_form.errors)
             context['form'] = submitted_form
-            return render(request, 'fullpage/index.html', context)
+            return render(request, 'fullpage/index_2021.html', context)
 
     else:
         form = ProspectForm()
 
     form = ProspectForm()
     context['form'] = form
-    return render(request, 'fullpage/index.html', context)
+    return render(request, 'fullpage/index_2021.html', context)
+
+
+def past_events(request):
+    context = {}
+    if request.method == 'POST':
+        submitted_form = ProspectForm(request.POST)
+        if submitted_form.is_valid():
+            submitted_form.save()
+            return redirect('index')
+        else:
+            messages.error(request, submitted_form.errors)
+            context['form'] = submitted_form
+            return render(request, 'fullpage/index_2018.html', context)
+
+    else:
+        form = ProspectForm()
+
+    form = ProspectForm()
+    context['form'] = form
+    return render(request, 'fullpage/index_2018.html', context)
+
+
+def coming_soon(request):
+    context = {}
+    if request.method == 'POST':
+        submitted_form = ProspectForm(request.POST)
+        if submitted_form.is_valid():
+            submitted_form.save()
+            return redirect('coming_soon')
+        else:
+            messages.error(request, submitted_form.errors)
+            context['form'] = submitted_form
+            return render(request, 'comingsoon/index.html', context)
+
+    else:
+        form = ProspectForm()
+
+    form = ProspectForm()
+    context['form'] = form
+    return render(request, 'comingsoon/index.html', context)
 
 
 def registration(request):

@@ -1,0 +1,654 @@
+{% extends "fullpage/base.html" %}
+{% load static %}
+
+
+{% block extra_js_top %}
+    <!-- Style -->
+    <style>
+/* Style for our header texts
+	* --------------------------------------- */
+	h1{
+		font-size: 5em;
+		font-family: arial,helvetica;
+		color: #990000;
+		margin:0;
+		padding:0;
+	}
+
+	/* Centered texts in each section
+	* --------------------------------------- */
+	.section{
+		text-align:center;
+	}
+
+	/* Backgrounds will cover all the section
+	* --------------------------------------- */
+	.section{
+		background-size: cover;
+	}
+	.slide{
+		background-size: cover;
+	}
+
+	/* Defining each section background and styles
+	* --------------------------------------- */
+	#section_1{
+		background-image: url("{% static 'images/streamlines_shader_triangle_strips.png' %}");
+	}
+
+    .bg-light-gray {
+    background-color: #f7f7f7;
+}
+.table-bordered thead td, .table-bordered thead th {
+    border-bottom-width: 2px;
+}
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+}
+.table-bordered td, .table-bordered th {
+    border: 1px solid #dee2e6;
+}
+
+
+.bg-sky.box-shadow {
+    box-shadow: 0px 5px 0px 0px #00a2a7
+}
+
+.bg-orange.box-shadow {
+    box-shadow: 0px 5px 0px 0px #af4305
+}
+
+.bg-green.box-shadow {
+    box-shadow: 0px 5px 0px 0px #4ca520
+}
+
+.bg-yellow.box-shadow {
+    box-shadow: 0px 5px 0px 0px #dcbf02
+}
+
+.bg-pink.box-shadow {
+    box-shadow: 0px 5px 0px 0px #e82d8b
+}
+
+.bg-purple.box-shadow {
+    box-shadow: 0px 5px 0px 0px #8343e8
+}
+
+.bg-lightred.box-shadow {
+    box-shadow: 0px 5px 0px 0px #d84213
+}
+
+
+.bg-sky {
+    background-color: #02c2c7
+}
+
+.bg-orange {
+    background-color: #e95601
+}
+
+.bg-green {
+    background-color: #5bbd2a
+}
+
+.bg-yellow {
+    background-color: #f0d001
+}
+
+.bg-pink {
+    background-color: #ff48a4
+}
+
+.bg-purple {
+    background-color: #9d60ff
+}
+
+.bg-lightred {
+    background-color: #ff5722
+}
+
+.padding-15px-lr {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.padding-5px-tb {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.margin-10px-bottom {
+    margin-bottom: 10px;
+}
+.border-radius-5 {
+    border-radius: 5px;
+}
+
+.margin-10px-top {
+    margin-top: 10px;
+}
+.font-size14 {
+    font-size: 14px;
+}
+
+.text-light-gray {
+    color: #d6d5d5;
+}
+.font-size13 {
+    font-size: 13px;
+}
+
+.table-bordered td, .table-bordered th {
+    border: 1px solid #dee2e6;
+}
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+.stage-earth {background-color: #FFA726};
+.stage-mercury {background-color: #9CCC65};
+.stage-venus {background-color: #FF8A65};
+.stage-mars {background-color: #B3E5FC};
+.stage-jupiter {background-color: #81D4FA};
+.stage-saturn {background-color: #26C6DA};
+
+
+    </style>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#fullpage').fullpage({
+                easingcss3: 'ease', //'cubic-bezier(0.175, 0.885, 0.320, 1.275)',
+                autoScrolling: true,
+                scrollOverflow: true,
+                fitToSection: true,
+                navigation: true,
+                navigationPosition: 'right',
+                navigationTooltips: ["Home", "About", "Projects Ideas",
+                                     "Schedule", "Register", "Contact"],
+                continuousVertical: false,
+                anchors: ["Home", "About", "Projects",
+                          "Schedule", "Register", "Contact"],
+
+                menu: '#menu'
+            });
+
+        });
+    </script>
+{% endblock %}
+
+
+{% block content_body %}
+    <div id="menu">
+        <div class="row">
+            <ul class="col-8">
+                <li data-menuanchor="Home"><a href="#Home">Home</a></li>
+                <li data-menuanchor="About"><a href="#About">About</a></li>
+                <li data-menuanchor="Projects"><a href="#Projects">Projects Ideas</a></li>
+                <li data-menuanchor="Schedule"><a href="#Schedule">Schedule</a></li>
+                <li data-menuanchor="Register"><a href="#Register">Register</a></li>
+                <li data-menuanchor="Contact"><a href="#Contact">Contact</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Past Event<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'past_events' %}">2018</a></li>
+                        <li><a href="{% url 'index' %}">2021</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="col-4"><img class="" src="{% static 'images/iu-logo.png' %}"
+                                    style="height: 20px; float: right;margin: 4%; margin-right: 20%"></div>
+        </div>
+    </div>
+
+<div id="fullpage">
+    <div class="section" id="section_1">
+        <h1>BrainHack Global</h1>
+        <h1>Bloomington</h1>
+        <h3>December 15-16th, 2021</h3>
+        <h2>Online Edition - Indiana University</h2>
+    </div>
+    <div class="section" id="section_2">
+        <div class="container with-padding-100">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <div class="service-icon yellow">
+                            <div class="front-content">
+                                <i class="fa fa-4x fa-heart-o text-white"></i>
+                                <h3>Share ideas</h3>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Share ideas</h3>
+                            <p>Those who do not know how to pursue pleasure</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <div class="service-icon orange">
+                            <div class="front-content">
+                                <i class="fa fa-4x fa-rocket wow text-white"></i>
+                                <h3>Build Projects</h3>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Build Projects</h3>
+                            <p>Bring your expertize, datas, project ideas</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <div class="service-icon red">
+                            <div class="front-content">
+                                <i class="fa fa-4x fa-flask wow text-white"></i>
+                                <h3>Learn Tools</h3>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Learn Tools</h3>
+                            <p>Discover or improve your skill on neuroscience software like DIPY, brain-life or Tortoise</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <div class="service-icon grey">
+                            <div class="front-content">
+                                <i class="fa fa-4x fa-globe wow text-white"></i>
+                                <h3>Meet the community</h3>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Meet the community</h3>
+                            <p>Share your experience with researchers from various disciplines around the world</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row featurette with-padding-60">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading"><b>What</b> is BrainHack ?</h2><br/>
+                    <p>Brainhack is a unique conference that convenes researchers from across the globe and a myriad of disciplines to work together on innovative projects related to neuroscience. Year after year, global Brainhack events have brought together researchers to participate in open collaboration, and regional Brainhack events keep the momentum going throughout the year. Brainhack Global will unite several regional Brainhack events throughout the world.</p>
+                    <p>Whatever your background, or level of expertise, you are encouraged to join us and participate: propose and discuss ideas, showcase demos, or contribute to activities initiated by others.</p>
+                    <p>This year in the Brainhack at Indiana University, Bloomington, we will focus on building your amazing projects idea to improve your skills with DIPY library (Diffusion Imaging in Python). </p>
+                </div>
+                <div class="col-md-5">
+                    <img class="featurette-image img-fluid mx-auto"
+                         src="{% static 'images/brainhack_global_iu_2017_2.jpg' %}" style="width: 500px; height: 250px;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="section_3">
+        <div class="container with-padding-100">
+            <div class="card-columns">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Add new features to image registration</h5>
+                        <hr class="yellow"/>
+                        <p class="card-text">
+                            <small class="text-muted">Image Registration Project</small>
+                        </p>
+                        <p class="card-text">
+                        The goal is to add or fix on the following features:
+                        <ul>
+                            <li>Fix Rotation in 2D image registration</li>
+                            <li>Add Jocabian determinant Image</li>
+                            <li>improve tutorial</li>
+                            <li>add a new metric</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Improve Patch2self</h5>
+                        <hr class="limestone"/>
+                        <p class="card-text">
+                            <small class="text-muted">Preprocessing Project</small>
+                        </p>
+                        <p class="card-text">
+                            <ul>
+                                <li>Improve Patch2self Documentation in DIPY</li>
+                                <li>Allow patch2self in a single slice data</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Sprint to fix issues on DIPY</h5>
+                        <hr class="red"/>
+                        <p class="card-text">
+                            <small class="text-muted">Support Project</small>
+                        </p>
+                        <p class="card-text">
+                            The challenge of this project is to fix a maximum number of issues on DIPY.
+                        </p>
+
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Sphinx Gallery Integration in DIPY</h5>
+                        <hr class="yellow"/>
+                        <p class="card-text">
+                            <small class="text-muted">Support Projects</small>
+                        </p>
+                        <p class="card-text">
+                            It Would be great to replace the current documentation system with sphinx-gallery.
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"> Your Project !</h5>
+                        <hr class="orange"/>
+                        <!-- <p class="card-text">
+                            <small class="text-muted">Tracking projects</small>
+                        </p> -->
+                        <p class="card-text">
+                           REGISTER to the event and add your project!
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section_4">
+        <div class="row with-padding-100">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="timetable-img text-center">
+                    <img src="img/content/timetable.png" alt="">
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center">
+                        <thead>
+                            <tr class="bg-light-gray">
+                                <th class="text-uppercase">Time
+                                </th>
+                                <th class="text-uppercase">Thursday, December 15th</th>
+                                <th class="text-uppercase">Friday, December 16th</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="align-middle">09:30am</td>
+                                <td>
+                                    <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13">Introduction</span>
+                                    <div class="margin-10px-top font-size14">9:30-10:00</div>
+                                    <div class="font-size13 text-light-gray">Conference Room</div>
+                                </td>
+                                <td>
+                                    <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Assembly</span>
+                                    <div class="margin-10px-top font-size14">9:30-10:00</div>
+                                    <div class="font-size13 text-light-gray">Conference Room</div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="align-middle">10:00am</td>
+                                <td>
+                                    <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Project Pitches</span>
+                                    <div class="margin-10px-top font-size14">10:00-10:30</div>
+                                    <div class="font-size13 text-light-gray">conference room</div>
+                                </td>
+                                <td>
+                                    <span class="bg-purple padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Open Hacking</span>
+                                    <div class="margin-10px-top font-size14">10:00-10:30</div>
+                                    <div class="font-size13 text-light-gray">coding area</div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="align-middle">10:30am</td>
+                                <td>
+                                    <span class="bg-purple padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Open Hacking</span>
+                                    <div class="margin-10px-top font-size14">10:30-12:30</div>
+                                    <div class="font-size13 text-light-gray">coding area</div>
+                                </td>
+                                <td>
+                                    <span class="bg-purple padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Open Hacking</span>
+                                    <div class="margin-10px-top font-size14">10:30-12:30</div>
+                                    <div class="font-size13 text-light-gray">coding area</div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="align-middle">12:30pm</td>
+                                <td>
+                                    <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
+                                    <div class="margin-10px-top font-size14">12:30-1:30</div>
+                                </td>
+                                <td>
+                                    <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
+                                    <div class="margin-10px-top font-size14">12:30-1:30</div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="align-middle">01:30pm</td>
+                                <td>
+                                    <span class="bg-purple padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Open Hacking</span>
+                                    <div class="margin-10px-top font-size14">1:30-3:30</div>
+                                    <div class="font-size13 text-light-gray">Coding Area</div>
+                                </td>
+                                <td>
+                                    <span class="bg-purple padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Open Hacking</span>
+                                    <div class="margin-10px-top font-size14">1:30-3:30</div>
+                                    <div class="font-size13 text-light-gray">Coding Area</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="align-middle">03:30pm</td>
+                                <td>
+                                    <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">DIPY Open Question</span>
+                                    <div class="margin-10px-top font-size14">3:30-4:30</div>
+                                    <div class="font-size13 text-light-gray">Conference room</div>
+                                </td>
+                                <td>
+                                    <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">DIPY Open Question</span>
+                                    <div class="margin-10px-top font-size14">3:30-4:30</div>
+                                    <div class="font-size13 text-light-gray">Conference Room</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="align-middle">04:30pm</td>
+                                <td>
+                                    <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Unconference</span>
+                                    <div class="margin-10px-top font-size14">4:30-5:30</div>
+                                    <div class="font-size13 text-light-gray">Conference room</div>
+                                </td>
+                                <td>
+                                    <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Project Presentation</span>
+                                    <div class="margin-10px-top font-size14">4:30-5:30</div>
+                                    <div class="font-size13 text-light-gray">Conference Room</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="section_6">
+        <div class="apply-section">
+            <div class="container">
+                <div class=".col-8 .col-md-6 .col-sm-6 p-b-100">
+                    <h2 class="intro">Registration for 2021 is now open!</h2>
+                    <h3 class="p-t-50">Registration deadline: December 14th, 2021</h3>
+                </div>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScHAK8Nx-HUMR_DCMqhae-vYfsNvWqbnZAEonn5Vn2jlpfJpA/viewform?usp=sf_link" role="button" class="btn btn-lg btn-block btn-outline-secondary">Apply
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="section_8">
+        <div class="container with-padding-100">
+            <div class="row">
+                <div class="text-center mx-auto">
+                    <h2>Get In Touch!</h2>
+                    <hr class="orange">
+                    <i class="fa fa-4x fa-envelope-o"></i>
+                    <p>Contact us for information or with your ideas.</p>
+                    <p>by sending a mail to <strong>grg-l -at- list.indiana.edu</strong></p>
+                </div>
+                <div class="text-center mx-auto">
+                    <h2>Media & Technical Support</h2>
+                    <hr class="orange">
+                    <p><strong>Serge Koudoro</strong>, Intelligent Systems Engineering, Indiana University</p>
+                </div>
+            </div>
+            <br/><br/><br/>
+            <div class="row">
+                <div class="text-center mx-auto">
+                    <h2>Organizers</h2>
+                    <hr class="orange">
+                    <br/>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <img class="rounded-circle" src="https://avatars.githubusercontent.com/u/23106443?v=4" alt="koudoro" width="140" height="140">
+                            <h3>Serge Koudoro </h3>
+                            <p>Intelligent Systems Engineering, Indiana University</p>
+                        </div>
+                        <div class="col-lg-6">
+                            <img class="rounded-circle" src="{% static 'images/garyfallidis.jpg' %}" alt="Garyfallidis" width="140" height="140">
+                            <h3>Eleftherios Garyfallidis</h3>
+                            <p>Intelligent Systems Engineering, Indiana University</p>
+                        </div>
+                </div>
+                </div>
+            </div>
+            <br/><br/>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js_bottom %}
+    <script>
+    $(".shared-show-hide").each(function() {
+        var $this = $(this);
+        var $current_html = $this.next('div.shared-block').html();
+        var $code = $this.parent().find('.shared-container');
+
+        $code.hide();
+
+        $this.on('click', function(e) {
+            e.preventDefault();
+            if ($code.html() != $current_html){
+                $code.hide();
+                $code.html($current_html);
+            }
+            $code.slideToggle();
+
+        });
+    });
+    $(".panel .show-hide").each(function() {
+        var $this = $(this);
+        var $code = $this.next('.form-container');
+
+        $code.hide();
+
+        $this.on('click', function(e) {
+            e.preventDefault();
+            $code.slideToggle();
+
+        });
+    });
+
+function ScheduleTemplate( element ) {
+  this.element = element;
+  this.timelineItems = this.element.getElementsByClassName('cd-schedule__timeline')[0].getElementsByTagName('li');
+  //..
+  this.singleEvents = this.element.getElementsByClassName('cd-schedule__event');
+  //..
+  this.initSchedule();
+};
+
+ScheduleTemplate.prototype.initSchedule = function() {
+  this.scheduleReset();
+  this.initEvents();
+};
+ScheduleTemplate.prototype.placeEvents = function() {
+  // on big devices - place events in the template according to their time/day
+  var self = this,
+    slotHeight = this.topInfoElement.offsetHeight;
+  for(var i = 0; i < this.singleEvents.length; i++) {
+    var anchor = this.singleEvents[i].getElementsByTagName('a')[0];
+    var start = getScheduleTimestamp(anchor.getAttribute('data-start')),
+      duration = getScheduleTimestamp(anchor.getAttribute('data-end')) - start;
+
+    var eventTop = slotHeight*(start - self.timelineStart)/self.timelineUnitDuration,
+      eventHeight = slotHeight*duration/self.timelineUnitDuration;
+
+    this.singleEvents[i].setAttribute('style', 'top: '+(eventTop-1)+'px; height: '+(eventHeight +1)+'px');
+  }
+};
+ScheduleTemplate.prototype.openModal = function(target) {
+  var self = this;
+  var mq = self.mq();
+  this.animating = true;
+
+  //update event name and time
+  this.modalEventName.textContent = target.getElementsByTagName('em')[0].textContent;
+  this.modalDate.textContent = target.getAttribute('data-start')+' - '+target.getAttribute('data-end');
+  this.modal.setAttribute('data-event', target.getAttribute('data-event'));
+
+  //update event content
+  this.loadEventContent(target.getAttribute('data-content'));
+
+  Util.addClass(this.modal, 'cd-schedule-modal--open');
+
+  if( mq == 'mobile' ) {
+    self.modal.addEventListener('transitionend', function cb(){
+      self.animating = false;
+      self.modal.removeEventListener('transitionend', cb);
+    });
+  } else {
+    var eventPosition = target.getBoundingClientRect(),
+      eventTop = eventPosition.top,
+      eventLeft = eventPosition.left,
+      eventHeight = target.offsetHeight,
+      eventWidth = target.offsetWidth;
+
+    var windowWidth = window.innerWidth,
+      windowHeight = window.innerHeight;
+
+    var modalWidth = ( windowWidth*.8 > self.modalMaxWidth ) ? self.modalMaxWidth : windowWidth*.8,
+      modalHeight = ( windowHeight*.8 > self.modalMaxHeight ) ? self.modalMaxHeight : windowHeight*.8;
+
+    var modalTranslateX = parseInt((windowWidth - modalWidth)/2 - eventLeft),
+      modalTranslateY = parseInt((windowHeight - modalHeight)/2 - eventTop);
+
+    var HeaderBgScaleY = modalHeight/eventHeight,
+      BodyBgScaleX = (modalWidth - eventWidth);
+
+    //change modal height/width and translate it
+    self.modal.setAttribute('style', 'top:'+eventTop+'px;left:'+eventLeft+'px;height:'+modalHeight+'px;width:'+modalWidth+'px;transform: translateY('+modalTranslateY+'px) translateX('+modalTranslateX+'px)');
+    //set modalHeader width
+    self.modalHeader.setAttribute('style', 'width:'+eventWidth+'px');
+    //set modalBody left margin
+    self.modalBody.setAttribute('style', 'margin-left:'+eventWidth+'px');
+    //change modalBodyBg height/width ans scale it
+    self.modalBodyBg.setAttribute('style', 'height:'+eventHeight+'px; width: 1px; transform: scaleY('+HeaderBgScaleY+') scaleX('+BodyBgScaleX+')');
+    //change modal modalHeaderBg height/width and scale it
+    self.modalHeaderBg.setAttribute('style', 'height: '+eventHeight+'px; width: '+eventWidth+'px; transform: scaleY('+HeaderBgScaleY+')');
+
+    self.modalHeaderBg.addEventListener('transitionend', function cb(){
+      //wait for the  end of the modalHeaderBg transformation and show the modal content
+      self.animating = false;
+      Util.addClass(self.modal, 'cd-schedule-modal--animation-completed');
+      self.modalHeaderBg.removeEventListener('transitionend', cb);
+    });
+  }
+};
+</script>
+{% endblock %}
+
